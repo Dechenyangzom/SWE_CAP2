@@ -390,10 +390,7 @@ def plant_sunflowers(req):
             goto(coords[count][0], coords[count][1])
             coords.pop(count)
             harvest()
-            num_maxes += 1
-            
-                
-                
+            num_maxes += 1                
                 
 ```
 
@@ -401,8 +398,6 @@ def plant_sunflowers(req):
 
 
 This code guides the drone to plant, water, and harvest sunflowers across the grid, trading for seeds if needed, and later measures, locates, and harvests sunflowers with the maximum petals until the required power level is achieved.
-
-
 
 
 **Notes**
