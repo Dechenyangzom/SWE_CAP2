@@ -404,7 +404,56 @@ This code guides the drone to plant, water, and harvest sunflowers across the gr
 
 - Using the code above I was able to get enough sunflower to unlock lower level of the games like maze, treasure and fertilizers.
 
+## Step 9 : Treasure Harvesting
 
+**Code**
+
+```python
+def coord():
+	return[get_pos_x(), get_pos_y()]
+directions = [North, East, South, West]
+x = 0
+
+while True:
+	plant(Entities.Bush)
+	do_a_flip()
+	do_a_flip()
+	do_a_flip()
+	do_a_flip()
+	while get_entity_type() != Entities.Hedge:
+		use_item(Items.Fertilizer)
+
+	for i in range(10):
+		visited = []
+		while get_entity_type() != Entities.Treasure:
+			
+			while not move(directions[x]):
+				quick_print(directions[x])
+				x += 1
+				if x == 4:
+					x = 0
+				
+			x -= 1
+			if x == -1:
+				x = 3
+				
+				
+		while get_entity_type() == Entities.Treasure:
+			while not trade_req(Items.Fertilizer, 5):
+				harvest()
+				plant_pumkins(10000)
+			use_item(Items.Fertilizer)
+	harvest()
+	
+	
+```
+
+**Explanation**
+This code defines a loop where an entity plants bushes, navigates to treasures while using fertilizer, and trades for items, repeating the process indefinitely.
+
+**Notes**
+
+- Using the code above I was able to get Treasure to unlock cactus.
 
 
 
@@ -416,6 +465,7 @@ video demo :
 ![](videos/1st_video.mp4)
 ![](videos/2nd_video.mp4)
 ![](videos/3rd_video.mp4)
+![](videos/4th_video.mp4)
 
 
 
