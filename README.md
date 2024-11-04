@@ -462,10 +462,8 @@ This code defines a loop where an entity plants bushes, navigates to treasures w
 
 video demo :
 
-![](videos/1st_video.mp4)
-![](videos/2nd_video.mp4)
-![](videos/3rd_video.mp4)
-![](videos/4th_video.mp4)
+![](video/harvesting_video.mp4)
+
 
 
 
