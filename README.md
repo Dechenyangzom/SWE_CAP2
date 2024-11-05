@@ -195,10 +195,6 @@ This code plants trees and bushes in a checkerboard pattern across the grid, wat
 ```python
 def plant_carrots(req):
     
-    # water percent for carrots
-
-    WATER_PERCENT = .65
-    
     reset_drone()
     
     while num_items(Items.Carrot) < req:
@@ -212,7 +208,6 @@ def plant_carrots(req):
                     plant_grass(500)
                     plant_trees(500) 
                 
-                water_me(WATER_PERCENT)
                 
                 # condition to exit
                 if num_items(Items.Carrot) < req:
@@ -229,7 +224,7 @@ def plant_carrots(req):
 **Explanation**
 
 
-This code makes the drone to plant, water, and harvest carrots across the grid, trading for carrot seeds as needed and planting other crops if seeds are insufficient, until the required number of carrots is collected.
+This code makes the drone to plant and harvest carrots across the grid, trading for carrot seeds as needed and planting other crops if seeds are insufficient, until the required number of carrots is collected.
 
 
 
@@ -293,7 +288,6 @@ def plant_pumkins(req):
                                     plant_carrots(50)
                                     reset_drone()
                                     harvest_grid()
-                                water_me(.75)
                                 plant(Entities.Pumpkin)
                                 
                         coord_list = temp_coord
@@ -314,13 +308,13 @@ def plant_pumkins(req):
 
 
 
-This code makes the drone to plant and harvest pumpkins by traversing the grid, checking and recording empty cells, trading for seeds as needed, replanting at unoccupied positions, and iteratively revisiting and replanting until the required number of pumpkins is collected.
+This code makes the drone to plant and harvest pumpkins by traversing the grid, trading for seeds as needed, replanting at unoccupied positions, and iteratively revisiting and replanting until the required number of pumpkins is collected.
 
 
 
 **Notes**
 
-- Using the code above I was able to get enough pumpkin to unlock advanced and useful data types which made the coding much simpler and shorter.
+- Using the code above I was able to get enough pumpkin to unlock data types which made the coding much simpler and shorter.
 
 
 
@@ -331,10 +325,6 @@ This code makes the drone to plant and harvest pumpkins by traversing the grid, 
 
 ```python
 def plant_sunflowers(req):
-    
-    # water percent for sunflower
-
-    WATER_PERCENT = .65
     
     reset_drone()
     
@@ -351,7 +341,6 @@ def plant_sunflowers(req):
                     plant_carrots()
     
                 
-                water_me(WATER_PERCENT)
                 
                 # condition to exit
                 if num_items(Items.Power) < req:
@@ -397,7 +386,7 @@ def plant_sunflowers(req):
 **Explanation**
 
 
-This code guides the drone to plant, water, and harvest sunflowers across the grid, trading for seeds if needed, and later measures, locates, and harvests sunflowers with the maximum petals until the required power level is achieved.
+This code guides the drone to plant and harvest sunflowers across the grid, trading for seeds if needed, and later measures, locates, and harvests sunflowers with the maximum petals until the required power level is achieved.
 
 
 **Notes**
@@ -477,15 +466,15 @@ https://github.com/user-attachments/assets/6e062ffd-20b0-4535-b416-01bd622102a7
 
 In the Farmer is Replaced Python game, several challenges made gameplay both engaging and complex:
 
-**1.Efficient Resource Management**: Balancing resources like seeds and water while meeting crop quotas requires careful planning and prioritization. Running out of seeds or water at the wrong time can disrupt the workflow and require backtracking to collect or trade for more.
+**1.Efficient Resource Management**: Balancing resources like seeds and water while meeting crop quotas requires careful planning and prioritization. Running out of seeds or water at the wrong time can disrupt the workflow.
 
-**2.Grid Navigation**: Programming the drone to navigate the grid efficiently, especially with constraints on movement direction and positioning, is a challenge. Looping across the grid without missing cells or revisiting already-harvested spots requires precise logic.
+**2.Grid Navigation**: Programming the drone to navigate the grid efficiently.
 
-**3.Conditional Logic for Mixed Actions**: Many tasks involve multi-step sequences (e.g., planting, watering, harvesting) with conditions, such as only planting specific crops in designated soil types or swapping to a fallback crop if resources are insufficient. Coding these steps with minimal redundancy demands effective use of loops and conditionals.
+**3.Conditional Logic for Mixed Actions**: Many tasks involve multi-step sequences (e.g., planting, watering, harvesting) with conditions, such as only planting specific crops in designated soil types.
 
-**4.Avoiding Infinite Loops and Recursion**: Some tasks, like replanting when resources are low, can lead to infinite loops if not handled carefully. Implementing checks to break out of loops and prevent unintended recursive calls is crucial.
+**4.Avoiding Infinite Loops and Recursion**: Some tasks, like replanting when resources are low, can lead to infinite loops if not handled carefully.
 
-**5.Prioritizing High-Yield Harvests**: When faced with limited resources, choosing which crops to prioritize (such as high-yield crops like pumpkins) adds strategic depth. Measuring factors like yield and growth time becomes essential to maximize output within constraints.
+**5.Prioritizing High-Yield Harvests**: When faced with limited resources, choosing which crops to prioritize adds strategic depth. Measuring factors like yield and growth time becomes essential to maximize output within constraints.
 
 
 
