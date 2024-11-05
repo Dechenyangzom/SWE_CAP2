@@ -119,10 +119,6 @@ This code continuously moves across a 3x3 grid, trading for carrot seeds, planti
 ```python
 def plant_grass(req):
     
-    # water percentage for grass is low because grass grows quick
-
-    WATER_PERCENT = .25
-    
     reset_drone()
     
     while num_items(Items.Hay) < req:
